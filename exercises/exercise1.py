@@ -1,3 +1,7 @@
+# Function sqrt with implementation of Babylonian solution to square root of number 2
+# optional parameters
+# returnErrorRate = return postive number thar the error rate
+# logInformation = when true this function log all informations about each interate to arrive in result
 def sqrt(number, precisionRate, returnErroRate=False, logInformation=False):
     if(number >= 0 and precisionRate > 0):
         smallerLimit = calculate(0)
@@ -34,14 +38,16 @@ def sqrt(number, precisionRate, returnErroRate=False, logInformation=False):
         return 0
 
 
+#calculate the form of Babylonian 
+# f(H) = (H^2) - 2
 def calculate(number):
     return (number * number) - 2
 
-
+#calculate middle number between 2 numbers
 def calculateMiddlePoint(numberA, numberB):
     return (numberA + numberB) / 2
 
-
+# return true if the number is negative
 def isNegativeNumber(number):
     if(number < 0):
         return True

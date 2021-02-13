@@ -21,14 +21,11 @@ def sqrt(number, precisionRate, returnErroRate=False, logInformation=False):
             condition = isNegativeNumber(errorRate)
 
             if(logInformation):
-                print("SmallerLimit: " + str(smallerLimit) + " BiggerLimit: " + str(biggerLimit) + " MiddlePoint: " + str(middlePoint) + " ErrorRate: " +
-                      str(errorRate) + " Condition: " + str(condition) + " Desision: " + ("SmallerLimit = MiddlePoint" if condition else "BiggerLimit = MiddlePoint"))
+                logInteration(smallerLimit, biggerLimit,
+                              middlePoint, errorRate, condition)
 
         if(returnErroRate):
-            if(errorRate < 0):
-                return errorRate * - 1
-            else:
-                return errorRate
+            return abs(errorRate)
 
         if(lastCondition):
             return smallerLimit
@@ -38,21 +35,32 @@ def sqrt(number, precisionRate, returnErroRate=False, logInformation=False):
         return 0
 
 
-#calculate the form of Babylonian 
+# calculate the form of Babylonian
 # f(H) = (H^2) - 2
 def calculate(number):
     return (number * number) - 2
 
-#calculate middle number between 2 numbers
+# calculate middle number between 2 numbers
+
+
 def calculateMiddlePoint(numberA, numberB):
     return (numberA + numberB) / 2
 
 # return true if the number is negative
+
+
 def isNegativeNumber(number):
     if(number < 0):
         return True
     else:
         return False
+
+# log information of interation in sqrt
+
+
+def logInteration(smallerLimit, biggerLimit, middlePoint, errorRate, condition):
+    print("SmallerLimit: " + str(smallerLimit) + " BiggerLimit: " + str(biggerLimit) + " MiddlePoint: " + str(middlePoint) + " ErrorRate: " +
+          str(errorRate) + " Condition: " + str(condition) + " Desision: " + ("SmallerLimit = MiddlePoint" if condition else "BiggerLimit = MiddlePoint"))
 
 
 # 1)

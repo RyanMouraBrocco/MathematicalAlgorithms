@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def triangule(systemMatrix):
     systemLength = len(systemMatrix)
     xValues = np.zeros(systemLength)
@@ -33,24 +34,25 @@ def pivot(systemMatrix):
             raise Exception('no unique solution exists')
 
         if(smaller != i):
-          systemMatrix =  switchEquations(systemMatrix, smaller, i)
+            systemMatrix = switchEquations(systemMatrix, smaller, i)
 
         for j in range(i + 1, systemLength):
             multiplyFactor = systemMatrix[j][i] / systemMatrix[i][i]
             systemMatrix = subEquations(systemMatrix, j, i, multiplyFactor)
-    
+
     if(systemMatrix[systemLength - 1][systemLength - 1] == 0):
         raise Exception('no unique solution exists')
-    
+
     return systemMatrix
-            
+
 
 def subEquations(matrix, lineResult, line, multiplyFactor):
     length = len(matrix[lineResult])
     for i in range(length):
         matrix[lineResult][i] -= multiplyFactor * matrix[line][i]
-    
+
     return matrix
+
 
 def switchEquations(matrix, lineA, lineB):
     length = len(matrix[lineA])
@@ -58,12 +60,12 @@ def switchEquations(matrix, lineA, lineB):
         oldValue = matrix[lineA][i]
         matrix[lineA][i] = matrix[lineB][i]
         matrix[lineB][i] = oldValue
-    
+
     return matrix
+
 
 def gauss(systemMatrix):
     return triangule(pivot(systemMatrix))
-
 
 
 matrix = [
@@ -101,7 +103,7 @@ try:
     ]
     print(gauss(matrix4a))
 except Exception as ex:
-    print("error: " + ex.message)
+    print("error in solution")
 
 try:
     matrix4b = [
@@ -111,7 +113,7 @@ try:
     ]
     print(gauss(matrix4b))
 except Exception as ex:
-    print("error: " + ex.message)
+    print("error in solution")
 
 try:
     matrix4c = [
@@ -122,7 +124,7 @@ try:
     ]
     print(gauss(matrix4c))
 except Exception as ex:
-    print("error: " + ex.message)
+    print("error in solution")
 
 try:
     matrix4d = [
@@ -133,4 +135,4 @@ try:
     ]
     print(gauss(matrix4d))
 except Exception as ex:
-    print("error: " + ex.message)
+    print("error in solution")

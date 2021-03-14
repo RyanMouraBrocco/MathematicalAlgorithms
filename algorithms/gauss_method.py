@@ -69,6 +69,8 @@ def gauss(systemMatrix):
     return triangulate(pivot(systemMatrix))
 
 
+print("exercise 1:")
+print("test 1")
 matrix = [
     [3.0,  2.0,  4.0,   1.0],
     [0.0,  1.0/3.0,  2.0/3.0,   5.0/3.0],
@@ -77,6 +79,7 @@ matrix = [
 
 print(triangulate(matrix))
 
+print("test 2")
 matrix2 = [
     [1.0,   1.0,   0.0,   3.0,    4.0],
     [0.0,  -1.0,  -1.0,  -5.0,   -7.0],
@@ -85,7 +88,7 @@ matrix2 = [
 ]
 print(triangulate(matrix2))
 
-
+print("exercise 2 and 3")
 matrix3 = [
     [9.0, 6.0,  -3.0,  3.0, 12.0],
     [6.0, 20.0, 2.0, 22.0, 64.0],
@@ -93,9 +96,14 @@ matrix3 = [
     [3.0, 22.0, 2.0, 28.0, 82.0]
 ]
 
-print(pivot(matrix3))
+print("test ex 2:")
+print(np.matrix(pivot(matrix3)))
+print("test ex 3:")
 print(gauss(matrix3))
 
+
+print("exercise 4:")
+print("a)")
 try:
     matrix4a = [
         [1.0, -1.0, 3.0, 2.0],
@@ -106,6 +114,8 @@ try:
 except Exception as ex:
     print("error in solution")
 
+
+print("b)")
 try:
     matrix4b = [
         [2.0, -1.5, 3.0, 1.0],
@@ -116,6 +126,8 @@ try:
 except Exception as ex:
     print("error in solution")
 
+
+print("c)")
 try:
     matrix4c = [
         [2.0, 0.0, 0.0, 0.0, 3.0],
@@ -127,6 +139,8 @@ try:
 except Exception as ex:
     print("error in solution")
 
+
+print("d)")
 try:
     matrix4d = [
         [1.0, 1.0, 0.0, 1.0, 2.0],

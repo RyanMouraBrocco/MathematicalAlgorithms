@@ -1,6 +1,6 @@
 import numpy as np
 
-
+# Function to resolve a triangular system of variables and save the result in xValues array
 def triangulate(systemMatrix):
     systemLength = len(systemMatrix)
     xValues = np.zeros(systemLength)
@@ -18,7 +18,7 @@ def triangulate(systemMatrix):
         xValues[i] = value
     return xValues
 
-
+# Function to pivot a system of variables
 def pivot(systemMatrix):
     systemLength = len(systemMatrix)
     for i in range(systemLength):
@@ -46,6 +46,7 @@ def pivot(systemMatrix):
     return systemMatrix
 
 
+# Function to sub a line for other (Ej - M * Ei) -> (Ej)
 def subEquations(matrix, lineResult, line, multiplyFactor):
     length = len(matrix[lineResult])
     for i in range(length):
@@ -53,7 +54,7 @@ def subEquations(matrix, lineResult, line, multiplyFactor):
 
     return matrix
 
-
+# Function to switch 2 lines Ej <-> Ei
 def switchEquations(matrix, lineA, lineB):
     length = len(matrix[lineA])
     for i in range(length):
@@ -63,7 +64,7 @@ def switchEquations(matrix, lineA, lineB):
 
     return matrix
 
-
+#Function to calculate a system of variables with gauss method
 def gauss(systemMatrix):
     return triangulate(pivot(systemMatrix))
 

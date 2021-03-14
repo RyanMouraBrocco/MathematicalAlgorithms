@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def triangule(systemMatrix):
+def triangulate(systemMatrix):
     systemLength = len(systemMatrix)
     xValues = np.zeros(systemLength)
     for i in range(systemLength - 1, -1, - 1):
@@ -65,7 +65,7 @@ def switchEquations(matrix, lineA, lineB):
 
 
 def gauss(systemMatrix):
-    return triangule(pivot(systemMatrix))
+    return triangulate(pivot(systemMatrix))
 
 
 matrix = [
@@ -74,7 +74,7 @@ matrix = [
     [0.0,  0.0,  -8.0,  0.0]
 ]
 
-print(triangule(matrix))
+print(triangulate(matrix))
 
 matrix2 = [
     [1.0,   1.0,   0.0,   3.0,    4.0],
@@ -82,7 +82,7 @@ matrix2 = [
     [0.0,   0.0,   3.0,   13.0,  13.0],
     [0.0,   0.0,   0.0,  -13.0, -13.0]
 ]
-print(triangule(matrix2))
+print(triangulate(matrix2))
 
 
 matrix3 = [

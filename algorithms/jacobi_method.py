@@ -1,10 +1,10 @@
 import numpy as np
-import time
+import timeit
 
 
 # jacobi method
 def jacobi(systemMatrix, errorRate, maxIteration, showTime=False):
-    startTime = time.time()
+    startTime = timeit.default_timer()
     systemLength = len(systemMatrix)
     error = 0
     index = 0
@@ -30,7 +30,7 @@ def jacobi(systemMatrix, errorRate, maxIteration, showTime=False):
         if(error < errorRate):
             if(showTime == True):
                 print("time to execute: " +
-                      str((time.time() - startTime)) + " seconds")
+                      str((timeit.default_timer() - startTime)) + " seconds")
 
             return xValues
 
